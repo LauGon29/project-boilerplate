@@ -1,5 +1,5 @@
 {
-  "name": "sass-boilerplate",
+  "name": "project-boilerplate",
   "version": "1.0.0",
   "description": "",
   "main": "Gulpfile.js",
@@ -25,6 +25,6 @@
     "start": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "stateside",
+  "author": "laugon",
   "license": "ISC"
 }
