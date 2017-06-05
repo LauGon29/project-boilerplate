@@ -5,6 +5,7 @@ import rename from 'gulp-rename';
 import uglify from 'gulp-uglify';
 import sourcemaps from 'gulp-sourcemaps';
 import autoprefixer from 'gulp-autoprefixer';
+import image from 'gulp-image';
 import babel from 'gulp-babel';
 import concat from 'gulp-concat';
 
@@ -22,7 +23,7 @@ const autoprefixerOptions = {
   browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
 };
 
-gulp.task('serve', ['sass', 'script'], () => {
+gulp.task('serve', ['sass', 'script', 'image'], () => {
     browserSync.init({
         server: {
             baseDir: "./"
@@ -47,13 +48,20 @@ gulp.task('sass', () => {
         .pipe(browserSync.stream());
 });
 
+gulp.task('image', () => {
+  gulp.src('./src/assets/images/*')
+    .pipe(image())
+    .pipe(gulp.dest('./dist/assets/images'));
+});
+
 gulp.task('script', () => {
     return gulp.src('src/js/*.js')
         .pipe(sourcemaps.init())
         .pipe(babel({
             presets: ['es2015']
         }))
-        .pipe(concat('bundle.js'))
+        .pipe(uglify())
+        .pipe(concat('bundle.min.js'))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./dist/js'));
 });

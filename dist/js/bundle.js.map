@@ -1,1 +1,0 @@
-{"version":3,"sources":["main.js"],"names":["hello","console","log"],"mappings":";;AAAA,IAAMA,QAAQ,SAARA,KAAQ,GAAM;AAChBC,YAAQC,GAAR,CAAY,OAAZ;AACH,CAFD;;AAIAF","file":"bundle.js","sourcesContent":["const hello = () => {\n    console.log('hello');\n}\n\nhello();"]}
