@@ -75,13 +75,4 @@ gulp.task('watch', () => {
     });
 });
 
-
 gulp.task('default', ['serve']);
-
-gulp.task('prod', () => {
-  gulp
-    .src(input)
-    .pipe(sass({ outputStyle: 'compressed' }))
-    .pipe(autoprefixer(autoprefixerOptions))
-    .pipe(gulp.dest(output));
-});
